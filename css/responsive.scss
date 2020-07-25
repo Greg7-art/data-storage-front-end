@@ -1,0 +1,48 @@
+@media (max-width: 690px) {
+    #fylo {
+        .content {
+            flex-direction: column;
+        }
+
+        .left-content {
+            max-width: none;
+            margin-bottom: 60px;
+        }
+
+        .right-content {
+            .baloon {
+                bottom: -75px;
+            }
+        }
+    }
+}
+
+@media (max-width: 375px) {
+    body {
+        background-image: url("../images/bg-mobile.png");
+    }
+
+    #fylo {
+        .left-content {
+            margin-bottom: 15px;
+        }
+
+        .right-content {
+            padding-bottom: 130px;
+            font-size: 0.8rem;
+            text-align: center;
+
+            .baloon {
+                bottom: -215px;
+                border-bottom-right-radius: 8px;
+                right: 80px;
+
+                ::after {
+                    display: none;
+                }
+            }
+        }
+    }
+
+}
+

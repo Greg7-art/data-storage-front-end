@@ -1,0 +1,38 @@
+@media (max-width: 690px) {
+  #fylo .content {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  #fylo .left-content {
+    max-width: none;
+    margin-bottom: 60px;
+  }
+  #fylo .right-content .baloon {
+    bottom: -75px;
+  }
+}
+
+@media (max-width: 375px) {
+  body {
+    background-image: url("../images/bg-mobile.png");
+  }
+  #fylo .left-content {
+    margin-bottom: 15px;
+  }
+  #fylo .right-content {
+    padding-bottom: 130px;
+    font-size: 0.8rem;
+    text-align: center;
+  }
+  #fylo .right-content .baloon {
+    bottom: -215px;
+    border-bottom-right-radius: 8px;
+    right: 80px;
+  }
+  #fylo .right-content .baloon ::after {
+    display: none;
+  }
+}
+/*# sourceMappingURL=responsive.css.map */

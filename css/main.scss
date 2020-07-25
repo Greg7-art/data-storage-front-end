@@ -1,0 +1,210 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap");
+
+$pale-blue: hsl(243, 100%, 93%);
+$grayish-blue: hsl(229, 7%, 55%);
+$dark-blue: hsl(228, 56%, 26%);
+$very-dark-blue: hsl(229, 57%, 11%);
+$body-font-size: 14px;
+$font-bold: 700;
+$font-light: 400;
+
+@mixin border-radius($radius-size) {
+    border-top-left-radius: $radius-size;
+    border-top-right-radius: $radius-size;
+    border-bottom-left-radius: $radius-size;
+    border-bottom-right-radius: $radius-size;
+}
+
+@mixin button-icon() {
+}
+
+body {
+    font-size: $body-font-size;
+    font-family: "Raleway", sans-serif;
+    background-color: $very-dark-blue;
+    background-image: url("../images/bg-desktop.png");
+    background-position: bottom;
+    background-repeat: no-repeat;
+}
+
+.wrapper {
+    height: 100vh;
+    margin: 0 30px 0 30px;
+    display: flex;
+    align-items: center;
+}
+
+#fylo {
+    width: 100%;
+    max-width: 1000px;
+    height: auto;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+
+    .content {
+        width: 100%;
+        height: 200px;
+        display: flex;
+        margin-bottom: 30px;
+        position: relative;
+        top: -55px;
+    }
+
+    .left-content,
+    .right-content {
+        padding: 40px;
+        @include border-radius(15px);
+    }
+
+    .left-content {
+        background-color: $dark-blue;
+        max-width: 360px;
+        width: 100%;
+        height: 200px;
+        border-top-right-radius: 100px;
+        margin-right: 30px;
+
+        .links {
+            display: flex;
+
+            button {
+                width: 45px;
+                height: 45px;
+                margin-top: 30px;
+                margin-right: 15px;
+                background-color: $very-dark-blue;
+                border: none;
+                border-radius: 8px;
+                cursor: pointer;
+                opacity: 1;
+                transition: all 0.2s;
+            }
+
+            button:last-child {
+                margin-right: 0;
+            }
+
+            button:hover {
+                background: linear-gradient(0deg, rgba(110,136,252,0.3) 0%, rgba(29,44,103,1) 100%);
+                box-shadow: inset 2px 2px 3px $very-dark-blue;
+            }
+        }
+    }
+
+    .right-content {
+        flex-grow: 1;
+        height: 150px;
+        background-color: $dark-blue;
+        color: $pale-blue;
+        margin-top: auto;
+        flex-direction: column;
+
+        .baloon {
+            width: 150px;
+            height: 60px;
+            background-color: #fff;
+            @include border-radius(8px);
+            border-bottom-right-radius: 0;
+            color: $very-dark-blue;
+            position: absolute;
+            right: 45px;
+            bottom: 130px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            ::after {
+                border-left: 20px solid transparent;
+                border-top: 20px solid #fff;
+                bottom: -20px;
+                content: "";
+                position: absolute;
+                left: 130px;
+            }
+
+            strong {
+                font-size: 2rem;
+                display: block;
+                margin-right: 10px;
+            }
+
+            span {
+                text-transform: uppercase;
+                font-weight: $font-bold;
+                font-size: 0.7rem;
+                color: $grayish-blue;
+                display: block;
+            }
+        }
+
+        .progress-bar {
+            align-self: center;
+
+            .message,
+            .bar,
+            .progress {
+                display: block;
+            }
+
+            .bar,
+            .progress {
+                @include border-radius(10px);
+            }
+
+            .message {
+                margin-bottom: 15px;
+                font-weight: $font-light;
+            }
+
+            .bar {
+                width: 100%;
+                height: 22px;
+                background-color: hsl(230, 44%, 18%);
+                margin-bottom: 10px;
+                display: flex;
+                align-items: center;
+
+                .progress {
+                    width: 80%;
+                    height: 16px;
+                    background: linear-gradient(90deg, hsl(6, 100%, 80%), hsl(335, 100%, 65%));
+                    margin-left: 3px;
+                    align-items: center;
+                    animation: loading 2.5s linear;
+
+                    @keyframes loading {
+                        0% { width: 0; }
+                        100% { width: 80%; }
+                    }
+
+                    .point {
+                        display: block;
+                        width: 12px;
+                        height: 12px;
+                        background-color: #fff;
+                        @include border-radius(100px);
+                        margin: 2px 2px 2px auto;
+                    }
+                }
+            }
+
+            .capacity {
+                display: flex;
+                justify-content: space-between;
+
+                span {
+                    display: block;
+                    font-weight: $font-bold;
+                }
+            }
+        }
+    }
+}
